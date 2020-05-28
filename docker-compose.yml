@@ -21,3 +21,14 @@ services:
     volumes:
       - "./server:/.go/src/github.com/kindaidensan/D-Chat/"
     tty: true
+  neo4j:
+    build: ./neo4j-docker
+    container_name: dchat-neo4j
+    restart: always
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - "./neo4j/data:/data"
+      - "./neo4j/logs:/logs"
+      - "./neo4j/conf:/conf"
