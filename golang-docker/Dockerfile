@@ -7,4 +7,9 @@ RUN apt-get -y update && \
 
 RUN go get -v github.com/gin-gonic/gin
 
+# development 
+RUN go get -v github.com/golang/mock/gomock
+RUN go get -v golang.org/x/mod/modfile
+RUN go install github.com/golang/mock/mockgen
+
 CMD ["go", "run", "main.go"]
